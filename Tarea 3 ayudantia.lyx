@@ -1,0 +1,274 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Patrones de diseño
+\end_layout
+
+\begin_layout Author
+Camilo Martínez – John López
+\end_layout
+
+\begin_layout Date
+11/12/2013
+\end_layout
+
+\begin_layout Standard
+Un patrón de diseño se puede definir como la base para la búsqueda de soluciones
+ a problemas comunes en el desarrollo de software y otros ámbitos referentes
+ al diseño de interacción o interfaces.
+\end_layout
+
+\begin_layout Standard
+Los patrones de diseño provienen del mundo de la arquitectura en el año
+ 1979 el arquitecto Christopher Alexander el lanza un libro llamado The
+ Timeless Way of Building; En el que abordaba la temática sobre planteamiento
+ urbano y la construcción de edificios.
+ En él se proponía el aprendizaje y uso de una serie de patrones para la
+ construcción de edificios de una mayor calidad.
+ El autor planteaba que cada patrón describe a un problema que se repetía
+ innumerables veces en nuestro entorno.
+\end_layout
+
+\begin_layout Standard
+En el año 1987 Ward Cunningham y Kent Beck aplican las ideas de Christopher
+ para desarrollar un pequeño lenguaje de patrones, para aprender Smalltalk:
+ “Using Pattern Languages for Object-Oriented Programs”.
+ Finalmente en el año 1990 se inicia un trabajo por un grupo denominado
+ “Gang of Four” que finalmente saca a la luz un libro llamado “Design Patterns,
+ Elements of Reusable Object-Oriented Software”.
+ En este libro se plantea tres clasificaciones de patrones la creacional,
+ estructural y de comportamiento.
+\end_layout
+
+\begin_layout Standard
+El primer patrón de creación permite:
+\end_layout
+
+\begin_layout Itemize
+Abstraer el proceso de creación de objetos.
+\end_layout
+
+\begin_layout Itemize
+Ayudar a crear sistemas independientes de cómo los objetos son creados,
+ compuestos y representados.
+\end_layout
+
+\begin_layout Itemize
+El sistema conoce las clases abstractas.
+\end_layout
+
+\begin_layout Itemize
+Flexibilidad en qué se crea, quién lo crea, cómo se crea y cuándo se crea.
+\end_layout
+
+\begin_layout Standard
+Los patrones de estructurales:
+\end_layout
+
+\begin_layout Itemize
+Cómo clases y objetos se combinan para formar estructuras más complejas.
+\end_layout
+
+\begin_layout Itemize
+Patrones basados en herencia.
+\end_layout
+
+\begin_layout Itemize
+Patrones basados en composición.
+\end_layout
+
+\begin_layout Standard
+Los patrones de comportamiento permiten:
+\end_layout
+
+\begin_layout Itemize
+Enfatizan la colaboración entre objetos.
+\end_layout
+
+\begin_layout Itemize
+Caracterizan un flujo de control más o menos complejo que será transparente
+ al que utilice el patrón.
+\end_layout
+
+\begin_layout Itemize
+Basados en herencia: Template Method e Interpreter.
+\end_layout
+
+\begin_layout Standard
+A continuación ahondaremos en el patrón de diseño Chain of Responsibility
+ que es un patrón de comportamiento que evita acoplar el emisor de una petición
+ a su receptor dando a más de un objeto la posibilidad de responder a una
+ petición.
+ Para ello, se encadenan los receptores y pasa la petición a través de la
+ cadena hasta que es procesada por algún objeto.
+ Este patrón es utilizado a menudo en el contexto de las interfaces gráficas
+ de usuario donde un objeto puede contener varios objetos.
+ Según si el ambiente de ventanas genera eventos, los objetos los manejan
+ o los pasan.
+\end_layout
+
+\begin_layout Standard
+Imaginemos un contexto gráfico donde se puede obtener información de ayuda
+ de cada elemento clickeando sobre él.
+ La información dependerá de la parte de la interfaz donde se pinche.
+ Puede darse la situación que dos "botones" iguales difieran en la información
+ a mostrar.
+ Para este tipo de problemas necesitamos un patrón que permita manejar dónde
+ se produce un evento, quién es el responsable del mismo y cuál es la respuesta
+ adecuada al mismo.
+ Para implementar el patrón deben de tomarse las siguientes consideraciones:
+\end_layout
+
+\begin_layout Itemize
+Implementar la cadena sucesora: Hay dos posibilidades de implementación.
+ La primera es definir nuevos enlaces, ya sea en la clase Manejador o en
+ las clase ManejadorConcreto.
+ La segunda posiblidad es emplear enlaces ya existentes, por ejemplo empleando
+ el patrón Composición.
+\end_layout
+
+\begin_layout Itemize
+Conexión de los sucesores.
+ Los propios ManejadoresConcretos son los encargados de propagar incondicionalme
+nte la petición.
+ Las referencias deben de estar definidas.
+\end_layout
+
+\begin_layout Itemize
+Representación de las peticiones.
+ Se puede emplear el paso por parámetros o variables mediante una función
+ manejadora, o hacer uso de invocaciones a operaciones insertadas en el
+ código.
+\end_layout
+
+\begin_layout Standard
+La mayoría de los usos conocidos de este patrón se pueden usar en editores
+ gráfico, protocolos industriales a niveles bajos y manejadores de evento.
+ Pero en la vida cotidiana como se puede ejemplificar este patrón.
+ Un ejemplo podría ser : Don Juan es un trabajador de un empresa internacional
+ de tecnología y quiere cobrar todos los viáticos que se le adeudan.
+ Don Juan realiza la solicitud de cobranza del viatico ( a él solamente
+ le interesa que se le cancele la deuda no le importa el medio y la forma
+ en que se le pague) el al enviar la solicitud genera una cadena de responsabili
+dad.
+ En esa cadena pueden existir múltiples personas (objetos) que son responsables
+ de la aprobación o reprobación de cada viatico eso incluye a jefes y gerentes
+ de la área de recurso humanos.
+ Según las reglas de la empresa si el viatico es inferior a $1000000 solo
+ necesita la autorización de la jefa de RRHH, en cambio si el viatico es
+ superior a el monto mencionado el gerente de área es el que da la autorización
+ y por ultimo si el monto es superior a $2000000 el gerente general es el
+ que autoriza los pagos.
+ Por lo tanto la forma en que se genera los pagos de viáticos es una cadena
+ de responsabilidad donde cada objeto responde a lo que es responsable.
+ Es muy importante que la cadena de responsabilidad parta siempre de menor
+ a mayor por la razón que si es un monto es muy bajo no tendría sentido
+ que el gerente general lo revise esto sirve absolutamente para la agilizar
+ el proceso.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "http://slimcode.blogspot.com/2009/10/cadena-de-responsabilidad-chain-of.html"
+key "key-1"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "http://geeks.ms/blogs/lontivero/archive/2007/10/10/patterns-chain-of-responsibilites-pattern.aspx"
+key "key-2"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "http://patronesdediseno.blogspot.com/2009/05/patron-chain-of-responsability.html"
+key "key-3"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "http://www.juntadeandalucia.es/servicios/madeja/contenido/recurso/182"
+key "key-4"
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
